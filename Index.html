@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Asad | Personal Portfolio</title>
+    <style>
+        /* आधुनिक कलर थीम और सेटिंग्स */
+        :root {
+            --primary-color: #4f46e5; /* Indigo */
+            --dark-color: #0f172a;    /* Slate Dark */
+            --light-bg: #f8fafc;      /* Soft White */
+            --text-color: #334155;    /* Gray */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 1. नेविगेशन बार (Header) */
+        header {
+            background: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 2. हीरो सेक्शन (Hero Section) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #64748b;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #4338ca;
+        }
+
+        /* कॉमन सेक्शन स्टाइल */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--dark-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* 3. हमारे बारे में (About Section) */
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* 4. सर्विसेज/प्रोजेक्ट्स (Services Section) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        /* 5. संपर्क करें (Contact Section) */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #4338ca;
+        }
+
+        /* 6. फुटर (Footer) */
+        footer {
+            background: var(--dark-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* मोबाइल के लिए रिस्पॉन्सिव */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* मोबाइल मेनू को सरल रखने के लिए */
+            .hero-content h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- नेविगेशन बार -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">AsadPortfolio.</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- होम / हीरो सेक्शन -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>नमस्ते, मैं हूँ <span>Mohd Asad</span></h1>
+            <p>वेब डिज़ाइनर और डिजिटल क्रिएटर</p>
+            <a href="#contact" class="btn">मुझसे संपर्क करें</a>
+        </div>
+    </section>
+
+    <!-- हमारे बारे में -->
+    <section id="about">
+        <h2 class="section-title">मेरे बारे में (About Me)</h2>
+        <div class="about-content">
+            <p>मेरा नाम मोहम्मद असद है। मुझे नई टेक्नोलॉजी सीखना और खूबसूरत वेबसाइट्स बनाना बहुत पसंद है। मैं इंटरनेट की दुनिया में अपनी पहचान बना रहा हूँ और यह वेबसाइट मेरे इसी सफर की एक शुरुआत है। मैं हमेशा कुछ नया और रचनात्मक करने का प्रयास करता हूँ।</p>
+        </div>
+    </section>
+
+    <!-- सर्विसेज / प्रोजेक्ट्स सेक्शन -->
+    <section id="services">
+        <h2 class="section-title">हमारी सेवाएं (Our Services)</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>💻 वेब डिज़ाइन (Web Design)</h3>
+                <p>हम आपके बिज़नेस या पर्सनल काम के लिए बहुत ही खूबसूरत, आधुनिक और मोबाइल-फ्रेंडली वेबसाइट्स डिज़ाइन करते हैं।</p>
+            </div>
+            <div class="service-card">
+                <h3>🚀 एसईओ (SEO Optimization)</h3>
+                <p>अपनी वेबसाइट को गूगल के टॉप सर्च रिज़ल्ट्स में लाने के लिए हम बेहतरीन सर्च इंजन ऑप्टिमाइजेशन की सर्विस देते हैं।</p>
+            </div>
+            <div class="service-card">
+                <h3>📈 डिजिटल ग्रोथ (Digital Growth)</h3>
+                <p>आपके आईडिया या बिज़नेस को इंटरनेट के ज़रिए सही लोगों तक पहुँचाने और उसे बड़ा बनाने में हम आपकी मदद करते हैं।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- कॉन्टैक्ट फॉर्म -->
+    <section id="contact">
+        <h2 class="section-title">संपर्क करें (Contact Me)</h2>
+        <div class="contact-form">
+            <form action="#" method="POST" onsubmit="alert('थैंक यू! आपका मैसेज भेज दिया गया है।'); return false;">
+                <div class="form-group">
+                    <label for="name">आपका नाम</label>
+                    <input type="text" id="name" placeholder="अपना नाम लिखें" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">ईमेल एड्रेस</label>
+                    <input type="email" id="email" placeholder="अपना ईमेल लिखें" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">आपका संदेश</label>
+                    <textarea id="message" rows="5" placeholder="यहाँ अपना मैसेज लिखें..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">मैसेज भेजें</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- फुटर -->
+    <footer>
+        &copy; 2026 Mohd Asad. | Designed with ❤️
+    </footer>
+
+</body>
+</html>
